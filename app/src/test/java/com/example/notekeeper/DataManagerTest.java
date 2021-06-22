@@ -25,8 +25,8 @@ public class DataManagerTest {
         //we perform the test to get the note and make sure the values that we expect
         //to be there are actually there.
         NoteInfo compareNote = dm.getNotes().get(noteIndex);
-        assertEquals(compareNote.getCourse(), course);
-        assertEquals(compareNote.getTitle(), noteTitle);
-        assertEquals(compareNote.getText(), noteText);
+        assertEquals(course, compareNote.getCourse());
+        assertEquals(noteTitle, compareNote.getTitle());
+        assertEquals(noteText, compareNote.getText());
     }
 }
