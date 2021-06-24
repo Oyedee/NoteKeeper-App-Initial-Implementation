@@ -75,4 +75,23 @@ public class DataManagerTest {
         int findNoteIndex2 = sDataManager.findNote(newNote2);
         assertEquals(findNoteIndex2, noteIndex2);
     }
+
+    @Test
+    public void createNewNoteOneStepCreation() {
+        //data values used to create a new note test
+        final CourseInfo course = DataManager.getInstance().getCourse("android_async");
+        final String noteTitle = "Test note title";
+        final String noteText = "This is the body text of my test note";
+
+        //method call for our new note
+        int noteIndex = DataManager.getInstance().createNewNote(course, noteTitle, noteText);
+
+        //get back the note at the noteIndex we just created.
+        //Using asserts, make sure the note at that position has all the right values.
+        NoteInfo compareNote = DataManager.getInstance().getNotes().get(noteIndex);
+        assertEquals(course, compareNote.getCourse());
+        assertEquals(noteTitle, compareNote.getTitle());
+        assertEquals(noteText, compareNote.getText());
+
+    }
 }

@@ -189,6 +189,19 @@ public class DataManager {
 
         return new CourseInfo("java_core", "Java Fundamentals: The Core Platform", modules);
     }
+
+    public int createNewNote(CourseInfo course, String noteTitle, String noteText) {
+        //createNewNote overload that takes no parameter which does the work of creating the spot for our note
+        int index = createNewNote();
+
+        //get that note back and populate with the correct data
+        NoteInfo note = getNotes().get(index);
+        note.setCourse(course);
+        note.setTitle(noteTitle);
+        note.setText(noteText);
+
+        return index;
+    }
     //endregion
 
 }
